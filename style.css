@@ -1,0 +1,245 @@
+/******************************************************************************
+START Glitch hello-app default styles
+
+The styles in this section do some minimal CSS resets, set default fonts and 
+colors, and handle the layout for our footer and "Remix on Glitch" button. If
+you're new to CSS they may seem a little complicated, but you can scroll down
+to this section's matching END comment to see page-specific styles.
+******************************************************************************/
+
+
+/* 
+  The style rules specify elements by type and by attributes such as class and ID
+  Each section indicates an element or elements, then lists the style properties to apply
+  See if you can cross-reference the rules in this file with the elements in index.html
+*/
+
+/* Our default values set as CSS variables */
+:root {
+  --color-bg: #fcfcf9;
+  --color-bg-2: #f7f6f2;
+  --color-text-main: #000000;
+  --color-text-header: #2800FF;
+  --color-primary: #FFFF00;
+  --color-dark: #111c18;
+  --box-padding: 2em;
+}
+
+/* Basic page style resets */
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+
+/* Resets */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/******************************************************************************
+END Glitch hello-app default styles
+******************************************************************************/
+
+body {
+  font-family: "Mona Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 16px;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  line-height: 1.4;
+  background-color: var(--color-bg);
+}
+
+/* Default styles */
+strong {
+  font-weight: 900;
+}
+
+h2 {
+  color: #000;
+  font-size: 1.5em;
+  font-weight: 900;
+  margin: 0 0 .8em 0;
+}
+h3 {
+  font-size: 1.2em;
+  font-weight: 800;
+  margin: .5em 0 .5em 0;
+}
+address {
+  font-style: normal;
+}
+a {
+  color: var(--color-dark);
+  line-break: anywhere;
+}
+p {
+  margin: 1em 0;
+}
+
+/* Page structure */
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "header header"
+    "main main"
+    "footer-l footer-r";
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (min-width: 43em) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "hero-img hero-img hero-sidebar";
+  }
+  .blurb {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@media (min-width: 3.75em) {
+  .logo {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5em, 1fr));
+}
+@media (min-width: 28.5em) {
+  .header-r {
+    text-align: right;
+  }
+}
+
+main {
+  grid-area: main;
+  border-bottom: 1px solid #000;
+}
+
+.footer-l {
+  grid-area: footer-l;
+  font-size: .9em;
+}
+.footer-r {
+  grid-area: footer-r;
+  text-align: right;
+}
+
+.icon {
+  width: 1.2em;
+  display: inline-block;
+}
+.icon--inline {
+  margin-bottom: -.2em;
+}
+.box {
+  padding: var(--box-padding);
+}
+.content-section {
+  background: var(--color-bg-2);
+}
+.content-section + .content-section {
+  padding-top: 0;
+}
+
+.hero {
+  position: relative;
+}
+.hero__img {
+  grid-area: hero-img;
+  background: url('/glitch-assets/IMG_5814.jpeg');
+  background-size: cover;
+  background-position: center;
+  min-height: 450px;
+}
+.hero__sidebar {
+  grid-area: hero-sidebar;
+  background-color: var(--color-dark);
+}
+.hero__img--sidebar {
+  grid-area: hero-sidebar;
+  background-image: url('/glitch-assets/sitting-with-snow.jpeg');
+  background-size: cover;
+  background-position: center;
+  min-height: 500px;
+}
+.blurb {
+  color: #fff;
+  font-size: 1.6em;
+  font-weight: 400;
+  margin: 0;
+}
+
+@media (min-width: 43em) {
+  .about {
+    display: grid;
+    gap: var(--box-padding);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "about-item-1 about-item-1 about-item-2";
+  }
+}
+.about__item-1 {
+  grid-area: about-item-1;
+}
+.about__item-2 {
+  grid-area: about-item-2;
+}
+.about__item-2 address {
+  margin-bottom: var(--box-padding);;
+}
+
+.showrooms {
+  display: grid;
+  gap: var(--box-padding);
+  grid-template-columns: repeat(auto-fit, minmax(12.5em, 1fr));
+}
+
+.faire {
+  
+}
+
+.contact-info {
+  display: grid;
+  gap: var(--box-padding);
+  grid-template-columns: repeat(auto-fit, minmax(12.5em, 1fr));
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5em, 1fr));
+}
+.photos__item {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+}
+@media (min-width: 75em) {
+  .photos__item { min-height: 500px; }
+}
+.photos__item--1 {
+  background-image: url('/glitch-assets//L1011378-Edit.jpeg');
+}
+.photos__item--2 {
+  background-image: url('/glitch-assets/L1011446.jpg');
+}
+.photos__item--3 {
+  background-image: url('/glitch-assets/L1011384-2.jpeg');
+}
